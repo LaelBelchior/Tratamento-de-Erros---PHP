@@ -3,6 +3,9 @@
 function funcao1()
 {
     echo 'Entrei na função 1' . PHP_EOL;
+    $arrayFixo = new SplFixedArray(2);
+    $arrayFixo[3] = 'Valor';
+    $divisao = intdiv(5, 0);
     funcao2();
     echo 'Saindo da função 1' . PHP_EOL;
 }
