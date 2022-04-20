@@ -5,10 +5,8 @@ function funcao1()
     echo 'Entrei na função 1' . PHP_EOL;
     try{
         funcao2();
-    } catch(RuntimeException $problema) {
+    } catch(RuntimeException | DivisionByZeroError $problema) {
         echo "Resolvendo o problema da função dois - $problema - na função um." . PHP_EOL;
-    } catch(DivisionByZeroError $erro) {
-        echo "Resolvendo o problema da função dois - $erro - na função um." . PHP_EOL;
     }
     
     echo 'Saindo da função 1' . PHP_EOL;
