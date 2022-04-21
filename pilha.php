@@ -8,6 +8,8 @@ function funcao1()
     } catch(RuntimeException | DivisionByZeroError $problema) {
         echo "Resolvendo o problema da função dois: ";
         echo $problema -> getMessage() . PHP_EOL;
+
+        throw new RuntimeException("Esse é o novo erro gerado no catch da funcao um", 1, $problema);
     }
     
     echo 'Saindo da função 1' . PHP_EOL;
