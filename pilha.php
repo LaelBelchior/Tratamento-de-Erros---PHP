@@ -17,14 +17,9 @@ function funcao2()
 {
     echo 'Entrei na função 2' . PHP_EOL;
 
-    $divisao = intdiv(5, 0);
+    $exception = new RuntimeException('Esse aqui é um parametro do erro lançado');
+    throw $exception;
 
-    $arrayFixo = new SplFixedArray(2);
-    $arrayFixo[3] = 'Valor';
-
-    for ($i = 1; $i <= 5; $i++) {
-        echo $i . PHP_EOL;
-    }
     echo 'Saindo da função 2' . PHP_EOL;
 }
 
