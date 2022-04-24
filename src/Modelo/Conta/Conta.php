@@ -5,6 +5,7 @@ namespace Alura\Banco\Modelo\Conta;
 require_once 'SaldoInsuficienteException.php';
 
 use Alura\Banco\Modelo\Conta\SaldoInsuficiente;
+use InvalidArgumentException;
 
 abstract class Conta
 {
@@ -40,8 +41,7 @@ abstract class Conta
     public function deposita(float $valorADepositar): void
     {
         if ($valorADepositar < 0) {
-            echo "Valor precisa ser positivo";
-            return;
+            throw new InvalidArgumentException('Operação inválida' . PHP_EOL);
         }
 
         $this->saldo += $valorADepositar;
