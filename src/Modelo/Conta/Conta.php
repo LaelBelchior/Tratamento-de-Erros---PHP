@@ -28,7 +28,7 @@ abstract class Conta
         $tarifaSaque = $valorASacar * $this->percentualTarifa();
         $valorSaque = $valorASacar + $tarifaSaque;
         if ($valorSaque > $this->saldo) {
-            throw new SaldoInsuficiente();
+            throw new SaldoInsuficiente($valorSaque, $this -> saldo);
         }
 
         $this->saldo -= $valorSaque;
