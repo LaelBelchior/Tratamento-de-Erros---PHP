@@ -2,11 +2,13 @@
 
 namespace Alura\Banco\Modelo\Conta;
 
-use SaldoInsuficiente;
+require_once 'SaldoInsuficienteException.php';
+
+use Alura\Banco\Modelo\Conta\SaldoInsuficiente;
 
 abstract class Conta
 {
-    private string $titular;
+    private Titular $titular;
     protected float $saldo;
     private static int $numeroDeContas = 0;
 
@@ -27,6 +29,7 @@ abstract class Conta
     {
         $tarifaSaque = $valorASacar * $this->percentualTarifa();
         $valorSaque = $valorASacar + $tarifaSaque;
+
         if ($valorSaque > $this->saldo) {
             throw new SaldoInsuficiente($valorSaque, $this -> saldo);
         }

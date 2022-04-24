@@ -13,6 +13,12 @@ $conta = new ContaPoupanca(
     )
 );
 $conta->deposita(500);
-$conta->saca(100);
 
-echo $conta->recuperaSaldo();
+try{
+    $conta->saca(600);
+} catch(Alura\Banco\Modelo\Conta\SaldoInsuficiente $problema){
+    echo "Você não tem saldo para realizar esta operação" . PHP_EOL;
+    echo $problema -> getMessage();
+}
+
+echo $conta->recuperaSaldo() . PHP_EOL;
